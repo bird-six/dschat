@@ -1,3 +1,6 @@
+# Ollama部署本地大模型+可视化交互页面
+
+
 Ollama 本地服务的默认访问地址是`http://localhost:11434`，如果`Ollama`服务启动后访问这个`url`会提示`Ollama is running`的内容。
 
 ### 1. 列出本地模型
