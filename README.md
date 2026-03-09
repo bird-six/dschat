@@ -44,18 +44,26 @@ http://localhost:11434/api/generate
 
 ```json
 {
-  "model": "deepseek-r1:1.5b",		// 模型名称
-  "prompt": "你好",		// 输入的提示词
-  "stream": false,		// 是否启用流式响应（默认 false）
-  "options": {              // 可选参数
-    "temperature": 0.7,     // 温度参数
-    "max_tokens": 100       // 最大 token 数
+  "model": "deepseek-r1:1.5b",
+  "prompt": "你好",
+  "stream": false,
+  "options": { 
+    "temperature": 0.7, 
+    "max_tokens": 100  
   }
 }
 ```
+| 字段                | 说明             |
+| ------------------- | ---------------- |
+| model               | 模型名称         |
+| prompt              | 输入的提示词     |
+| stream              | 是否启用流式响应 |
+| options             | 可选参数         |
+| options.temperature | 温度参数         |
+| options.max_tokens  | 最大 token 数    |
+
 
 响应成功：
-
 HTTP状态码：200，内容格式：JSON，响应示例：
 
 
@@ -74,15 +82,24 @@ http://localhost:11434/api/chat
 
 ```json
 {
-  "model": "deepseek-r1:1.5b",		// 模型名称
-  "stream": False,		//流式响应
-  "messages": [		// 消息列表
-    {"role": "user", "content": "你好，我叫小明"},		// 用户的问题
-    {"role": "assistant", "content": "你好小明！有什么可以帮你的吗？"},	// ai的回答
-    {"role": "user", "content": "我刚才告诉你我叫什么了吗？"}		// 用户的问题
+  "model": "deepseek-r1:1.5b",
+  "stream": false,
+  "messages": [
+    {"role": "user", "content": "你好，我叫小明"},
+    {"role": "assistant", "content": "你好小明！有什么可以帮你的吗？"},
+    {"role": "user", "content": "我刚才告诉你我叫什么了吗？"}
   ]
 }
 ```
+
+| 字段               | 说明                           |
+| ------------------ | ------------------------------ |
+| model              | 模型名称                       |
+| stream             | 流式响应                       |
+| messages           | 消息列表                       |
+| messages[].role    | 消息角色（如 user/assistant）  |
+| messages[].content | 消息内容（用户问题 / AI 回答） |
+
 
 响应成功：
 
@@ -90,20 +107,20 @@ HTTP状态码：200，内容格式：JSON，响应示例：
 
 ```json
 {
-    'model': 'deepseek-r1:1.5b',
-    'created_at': '2025-07-31T09:14:27.6278501Z',
-    'message': {
-        'role': 'assistant', 
-        'content': '<think>\n\n</think>\n\n您好，小明同学。您提到的名字是“小明”，这是一个常见的中文名字，没有特殊的含义或要求。如果您需要帮助，请告诉我具体的问题或者需求，我会尽力为您提供帮助。'
+    "model": "deepseek-r1:1.5b",
+    "created_at": "2025-07-31T09:14:27.6278501Z",
+    "message": {
+        "role": "assistant",
+        "content": "\n\n\n\n您好，小明同学。您提到的名字是“小明”，这是一个常见的中文名字，没有特殊的含义或要求。如果您需要帮助，请告诉我具体的问题或者需求，我会尽力为您提供帮助。"
     },
-    'done_reason': 'stop',
-    'done': True,
-    'total_duration': 626249000,
-    'load_duration': 39893100,
-    'prompt_eval_count': 30,
-    'prompt_eval_duration': 3000000,
-    'eval_count': 45,
-    'eval_duration': 581000000
+    "done_reason": "stop",
+    "done": true,
+    "total_duration": 626249000,
+    "load_duration": 39893100,
+    "prompt_eval_count": 30,
+    "prompt_eval_duration": 3000000,
+    "eval_count": 45,
+    "eval_duration": 581000000
 }
 ```
 
